@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Timer Page</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+
+      h1 {
+        margin-top: 50px;
+      }
+
+      #timer {
+        font-size: 50px;
+        margin-top: 50px;
+      }
+      
+      #shrek-image {
+        display: none;
+        margin-top: 50px;
+      }
+
+      #serious-message {
+        display: none;
+        margin-top: 50px;
+        font-size: 24px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Timer Page</h1>
+    <div id="timer"></div>
+
+    
+    <div id="serious-message">
+      It's a serious project!
+    </div>
+
+<img id="shrek-image" src="https://cdn.vox-cdn.com/thumbor/vyQvJ-qkX38sHbCuAMJLeewLYyo=/715x248:1689x721/1220x813/filters:focal(972x299:1278x605):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/69305239/shrek4_disneyscreencaps.com_675.0.jpg" alt="Shrek Image">
+
+    <script>
+      var seconds = 30;
+      var timer = document.getElementById("timer");
+
+      function pad(val) {
+        return val > 9 ? val : "0" + val;
+      }
+
+      var intervalId = setInterval(function () {
+        seconds--;
+        var remainingSeconds = seconds % 60;
+        timer.innerHTML = pad(remainingSeconds);
+        if (seconds === 0) {
+          clearInterval(intervalId);
+          timer.style.display = "none";
+          document.getElementById("shrek-image").style.display = "block";
+          document.getElementById("serious-message").style.display = "block";
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>
